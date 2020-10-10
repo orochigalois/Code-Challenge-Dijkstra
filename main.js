@@ -43,6 +43,11 @@ jQuery(document).ready(function ($) {
 
 });
 
+function showFilename(file) {
+  $("#filename_label").html("nihi");
+}
+
+
 function resizeCanvas() {
 
   const formHeight = 300;
@@ -64,10 +69,10 @@ function resizeCanvas() {
 }
 
 function upload(e) {
-  console.log('IamIn');
 
   let reader = new FileReader();
   if (e.files[0]) {
+    $('span#filename').text(e.files[0].name);
     reader.readAsText(e.files[0], "UTF-8");
     reader.onload = function (evt) {
       let fileString = evt.target.result;
@@ -80,6 +85,8 @@ function upload(e) {
 
       calculateShortDistance(input_json);
       resizeCanvas();
+
+
       console.log(input_json);
     }
   } else {

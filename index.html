@@ -9,8 +9,13 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
   <style>
-    #file::part(span) {
-      display: none;
+    #filename {
+      position: absolute;
+      top: 3px;
+      left: 102px;
+      display: inline-block;
+      background-color:white;
+      min-width: 120px;
     }
   </style>
 </head>
@@ -18,8 +23,9 @@
 <body>
   <div class="container mt-5">
     <form>
-      <div class="form-group">
+      <div class="form-group" style="position:relative;">
         <input type="file" class="form-control-file" id="file" onchange="upload(this)">
+        <span id="filename">No file chosen</span>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Name">
